@@ -11,8 +11,9 @@
 		<% flash[:errors].each do |error| %>
 			<div class="flash errors"><%= error %></div>
 		<% end %>
-<% end %>
+	<% end %>
  	<a href="/makers/new" title="Sign Up" class="button">Sign Up</a>
+ 	<a href="/sessions/new" title="Sign In" class="button">Sign In</a>
 	<%= yield %>
 </body>
 </html>

@@ -3,7 +3,7 @@ Feature: Maker signs up
   As a Maker
   I want to sign up to the service
 
-  Scenario: from the homepage
+  Scenario: (getting from the homepage)
     Given I am on the homepage
     When I follow "Sign Up"
     Then I should be on the sign up page
