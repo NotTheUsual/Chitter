@@ -31,6 +31,6 @@ Feature: Maker signs up
       | password      | s3cr3t                     |
       | confirmation  | wrong                      |
     And I press "Sign Up"
-    Then there should be 0 more Maker
+    Then there should be 0 more Makers
     And I should be on the sign up page
     And I should see "Password does not match the confirmation"
