@@ -11,4 +11,5 @@ group :development, :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'cucumber-sinatra'
+  gem 'databse-cleaner'
 end
