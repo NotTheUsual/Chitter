@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<% if flash[:notice] %>
+		<div class="flash"><%= flash[:notice] %></div>
+	<% end %>
+	<% if flash[:errors] && !flash[:errors].empty? %>
+		<% flash[:errors].each do |error| %>
+			<div class="flash errors"><%= error %></div>
+		<% end %>
+<% end %>
+ 	<a href="/makers/new" title="Sign Up" class="button">Sign Up</a>
+	<%= yield %>
+</body>
+</html>

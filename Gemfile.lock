@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/bmabey/database_cleaner
+  revision: b254ce57bdeea927e514a486aedc2ac97199324b
+  specs:
+    database_cleaner (1.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -81,6 +87,8 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     rack (1.5.2)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (1.5.2)
       rack
     rack-test (0.6.2)
@@ -111,10 +119,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby
   capybara
   cucumber
   cucumber-sinatra
   data_mapper
+  database_cleaner!
   dm-postgres-adapter
+  rack-flash3
   rspec
   sinatra
