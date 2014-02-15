@@ -6,9 +6,9 @@ Feature: Someone views an individual peep
   Scenario: from the homepage
     Given I am already signed up
     And I am already signed in
-    And I tweet
+    And I peep
     And I am on the homepage
     When I follow the first date link
-    Then I should be on the page for that tweet
+    # Then I should be on the page for that peep
     And I should see "just setting up my chttr"
-    And I should see the time the tweet was created
+    And I should see the full time the peep was created

@@ -9,9 +9,15 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-Given(/^I tweet$/) do
+Given(/^I peep$/) do
   visit '/peeps/new'
   fill_in("message", with: "just setting up my chttr")
+  click_button("Peep")
+end
+
+Given(/^I peep again$/) do
+  visit '/peeps/new'
+  fill_in("message", with: "Second message!")
   click_button("Peep")
 end
 
@@ -31,7 +37,7 @@ Then /^(?:|I )should see the current date(?: within "([^\"]*)")?$/ do |selector|
   end
 end
 
-Then(/^I should see the time the tweet was created$/) do
+Then(/^I should see the full time the peep was created$/) do
   t = Time.now
 	text = t.strftime "%-l:%M %p - %-d %b %Y"
   if page.respond_to? :should
@@ -39,4 +45,17 @@ Then(/^I should see the time the tweet was created$/) do
   else
     assert page.has_content?(text)
   end
+end
+
+# From https://github.com/makandra/spreewald
+Then /^I should see in this order:?$/ do |text|
+  if text.is_a?(String)
+    lines = text.split(/\n/)
+  else
+    lines = text.raw.flatten
+  end
+  lines = lines.collect { |line| line.gsub(/\s+/, ' ')}.collect(&:strip).reject(&:empty?)
+  pattern = lines.collect(&Regexp.method(:quote)).join('.*?')
+  pattern = Regexp.compile(pattern)
+  page.text.gsub(/\s+/, ' ').should =~ pattern
 end

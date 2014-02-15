@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: [ :time.desc ])
     erb :index
   end
 

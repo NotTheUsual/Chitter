@@ -22,8 +22,8 @@ module NavigationHelpers
     when /the new peep page/
       '/peeps/new'
 
-    when /the page for that tweet/
-      '/peeps/1'
+    when /the page for that peep/
+      '/peeps/*'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
