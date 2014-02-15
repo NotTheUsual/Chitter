@@ -16,4 +16,6 @@ group :development, :test do
   gem 'cucumber'
   gem 'cucumber-sinatra'
   gem 'database_cleaner', git: 'git://github.com/bmabey/database_cleaner'
+
+  gem 'shotgun'
 end
