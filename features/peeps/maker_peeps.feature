@@ -29,3 +29,16 @@ Feature: Maker posts a message
 		And I am not signed in
 		When I sign in
 		Then I should be on the new peep page
+
+# So, I'm validating this with html (ie the message field has the 'required' attribute)
+# Apparently Capybara can't deal with this (or at least, I can't make it)
+# So if you actually carry out the actions listed below, everything's fine
+# But Capybara's somehow able to submit the form...
+# Odd...
+
+#	Scenario: with an empty message
+#		Given I am already signed up
+#		And I am already signed in
+#		And I am on the new peep page
+#		When I press "Peep"
+#		Then I should be on the new peep page
