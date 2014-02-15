@@ -12,8 +12,15 @@
 			<div class="flash errors"><%= error %></div>
 		<% end %>
 	<% end %>
- 	<a href="/makers/new" title="Sign Up" class="button">Sign Up</a>
- 	<a href="/sessions/new" title="Sign In" class="button">Sign In</a>
+	<% if current_user %>
+		<form id="sign-out" method="post" action="/sessions">
+	    <input type="hidden" name="_method" value="delete">
+	    <input type="submit" class="button bad" value="Sign Out">
+	  </form>
+	<% else %>
+	 	<a href="/makers/new" title="Sign Up" class="button">Sign Up</a>
+	 	<a href="/sessions/new" title="Sign In" class="button">Sign In</a>
+ 	<% end %>
 	<%= yield %>
 </body>
 </html>

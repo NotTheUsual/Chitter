@@ -17,6 +17,8 @@ Feature: Maker signs in
     And I press "Sign In"
     Then I should be on the homepage
     And I should see "Welcome, Enrique Comba Riepenhausen"
+    And I should not see "Sign Up"
+    And I should not see "Sign In"
 
   Scenario: with incorrect credentials
     Given I am on the sign in page

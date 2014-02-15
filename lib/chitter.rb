@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'Dinosaurs and spaceships'
   use Rack::Flash
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -48,11 +49,24 @@ class Chitter < Sinatra::Base
     username, password = params[:username], params[:password]
     maker = Maker.authenticate(username, password)
     if maker
+      session[:maker_id] = maker.id
       flash[:notice] = "Welcome, #{maker.name}"
       redirect to('/')
     else
       flash[:errors] = ["The email or password are incorrect"]
       redirect to('/sessions/new')
+    end
+  end
+
+  delete '/sessions' do
+    flash[:notice] = "Goodbye!"
+    session[:maker_id] = nil
+    redirect to('/')
+  end
+
+  helpers do
+    def current_user    
+      @current_user ||=Maker.get(session[:maker_id]) if session[:maker_id]
     end
   end
 
