@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -42,6 +43,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
+    session[:login_location] ||= '/'
     erb :"sessions/new"
   end
 
@@ -51,7 +53,7 @@ class Chitter < Sinatra::Base
     if maker
       session[:maker_id] = maker.id
       flash[:notice] = "Welcome, #{maker.name}"
-      redirect to('/')
+      redirect to(session[:login_location])
     else
       flash[:errors] = ["The email or password are incorrect"]
       redirect to('/sessions/new')
@@ -61,7 +63,31 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     flash[:notice] = "Goodbye!"
     session[:maker_id] = nil
+    session[:login_location]
     redirect to('/')
+  end
+
+  get '/peeps/new' do
+    if session[:maker_id]
+      erb :"peeps/new"
+    else
+      flash[:errors] = ["Please sign in to post a peep"]
+      session[:login_location] = '/peeps/new'
+      redirect to('/sessions/new')
+    end
+  end
+
+  post '/peeps' do
+    message = params[:message]
+    maker = current_user
+    Peep.create(message: message, maker: maker, time: Time.now)
+    flash[:notice] = "Your peep has been posted!"
+    redirect to('/')
+  end
+
+  get '/peeps/:id' do |id|
+    @peep = Peep.first(id: id)
+    erb :"peeps/peep"
   end
 
   helpers do

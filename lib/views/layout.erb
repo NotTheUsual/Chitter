@@ -12,6 +12,7 @@
 			<div class="flash errors"><%= error %></div>
 		<% end %>
 	<% end %>
+	<a href="/peeps/new" title="New Peep" class="button">New Peep</a>
 	<% if current_user %>
 		<form id="sign-out" method="post" action="/sessions">
 	    <input type="hidden" name="_method" value="delete">

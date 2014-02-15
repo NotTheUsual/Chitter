@@ -20,6 +20,15 @@ Given(/^I am already signed in$/) do
   click_button 'Sign In'
 end
 
+Given(/^I am not signed in$/) do
+end
+
+When(/^I sign in$/) do
+  fill_in 'username', with: "ecomba"
+  fill_in 'password', with: "s3cr3t"
+  click_button 'Sign In'
+end
+
 Then /^there should be (\d+) Maker(?:|s+)$/ do |quantity|
   expect(Maker.count).to eq(quantity.to_i)
 end
