@@ -64,6 +64,15 @@ class Chitter < Sinatra::Base
     redirect to('/')
   end
 
+  get '/peeps/new' do
+    erb :"peeps/new"
+  end
+
+  post '/peeps' do
+    flash[:notice] = "Your peep has been posted!"
+    redirect to('/')
+  end
+
   helpers do
     def current_user    
       @current_user ||=Maker.get(session[:maker_id]) if session[:maker_id]

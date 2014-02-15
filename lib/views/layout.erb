@@ -13,6 +13,7 @@
 		<% end %>
 	<% end %>
 	<% if current_user %>
+		<a href="/peeps/new" title="New Peep" class="button">New Peep</a>
 		<form id="sign-out" method="post" action="/sessions">
 	    <input type="hidden" name="_method" value="delete">
 	    <input type="submit" class="button bad" value="Sign Out">

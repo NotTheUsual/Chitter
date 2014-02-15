@@ -19,6 +19,8 @@ Given(/^I am already signed in$/) do
   fill_in 'password', with: "s3cr3t"
   click_button 'Sign In'
 end
+Given(/^I am not signed in$/) do
+end
 
 Then /^there should be (\d+) Maker(?:|s+)$/ do |quantity|
   expect(Maker.count).to eq(quantity.to_i)
