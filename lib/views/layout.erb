@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Bookmark Manager</title>
 </head>
 <body>
-	<a href="/">Home</a>
+	<header>
+		<a href="/" id="logo">chitter</a>
+		<% if current_user %>
+			<span id="username" ><%= current_user.name %></span>
+			<form id="sign-out" method="post" action="/sessions">
+		    <input type="hidden" name="_method" value="delete">
+		    <input type="submit" class="button bad" value="Sign Out">
+		  </form>
+		  <a href="/peeps/new" title="New Peep" class="button">New Peep</a>
+		<% else %>
+		 	<a href="/makers/new" title="Sign Up" class="button">Sign Up</a>
+		 	<a href="/sessions/new" title="Sign In" class="button">Sign In</a>
+	 	<% end %>
+	</header>
+
 	<% if flash[:notice] %>
 		<div class="flash"><%= flash[:notice] %></div>
 	<% end %>
@@ -13,16 +27,6 @@
 			<div class="flash errors"><%= error %></div>
 		<% end %>
 	<% end %>
-	<a href="/peeps/new" title="New Peep" class="button">New Peep</a>
-	<% if current_user %>
-		<form id="sign-out" method="post" action="/sessions">
-	    <input type="hidden" name="_method" value="delete">
-	    <input type="submit" class="button bad" value="Sign Out">
-	  </form>
-	<% else %>
-	 	<a href="/makers/new" title="Sign Up" class="button">Sign Up</a>
-	 	<a href="/sessions/new" title="Sign In" class="button">Sign In</a>
- 	<% end %>
 	<%= yield %>
 </body>
 </html>
