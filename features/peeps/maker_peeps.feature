@@ -13,7 +13,16 @@ Feature: Maker posts a message
 		Then I should be on the homepage
 		And I should see "Your peep has been posted!"
 
-	Scenario: when logged out
-		Given I am on the homepage
+
+	Scenario: when logged out and on the new peep page
+		Given I am on the new peep page
 		And I am not signed in
-		Then I should not see "New Peep"
+		Then I should be on the sign in page
+		And I should see "Please sign in to post a peep"
+
+	Scenario: when logging in from the new peep page
+		Given I am on the new peep page
+		And I am already signed up
+		And I am not signed in
+		When I sign in
+		Then I should be on the new peep page
