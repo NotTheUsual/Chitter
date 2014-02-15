@@ -40,6 +40,22 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  post '/sessions' do
+    username, password = params[:username], params[:password]
+    maker = Maker.authenticate(username, password)
+    if maker
+      flash[:notice] = "Welcome, #{maker.name}"
+      redirect to('/')
+    else
+      flash[:errors] = ["The email or password are incorrect"]
+      redirect to('/sessions/new')
+    end
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

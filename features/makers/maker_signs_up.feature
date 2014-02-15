@@ -17,7 +17,7 @@ Feature: Maker signs up
       | password      | s3cr3t                     |
       | confirmation  | s3cr3t                     |
     And I press "Sign Up"
-    Then there should be 1 more Maker
+    Then there should be 1 Maker
     And I should see "Welcome, Enrique Comba Riepenhausen"
     And the first Maker's email should be "ecomba@makersacademy.com"
     And the first Maker's username should be "ecomba"
@@ -31,6 +31,36 @@ Feature: Maker signs up
       | password      | s3cr3t                     |
       | confirmation  | wrong                      |
     And I press "Sign Up"
-    Then there should be 0 more Makers
+    Then there should be 0 Makers
     And I should be on the sign up page
     And I should see "Password does not match the confirmation"
+
+  Scenario: with a username that's already taken
+    Given I am on the sign up page
+    And I am already signed up
+    When I fill in the following:
+      | name          | Enrique  Riepenhausen     |
+      | username      | ecomba                    |
+      | email         | enrique@makersacademy.com |
+      | password      | s3cr3t                    |
+      | confirmation  | s3cr3t                    |
+    And I press "Sign Up"
+    Then there should be 1 Maker
+    And I should be on the sign up page
+    And I should see "This username is already taken"
+
+  Scenario: with an email address that's already taken
+    Given I am on the sign up page
+    And I am already signed up
+    When I fill in the following:
+      | name          | Enrique  Riepenhausen    |
+      | username      | enrique                  |
+      | email         | ecomba@makersacademy.com |
+      | password      | s3cr3t                   |
+      | confirmation  | s3cr3t                   |
+    And I press "Sign Up"
+    Then there should be 1 Maker
+    And I should be on the sign up page
+    And I should see "This email address is already taken"
+
+

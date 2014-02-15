@@ -9,7 +9,11 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-Then /^there should be (\d+) more Maker(?:|s+)$/ do |quantity|
+Given(/^I am already signed up$/) do
+  Maker.create(name: "Enrique Comba Riepenhausen", username: "ecomba", email: "ecomba@makersacademy.com", password: "s3cr3t", password_confirmation: "s3cr3t")
+end
+
+Then /^there should be (\d+) Maker(?:|s+)$/ do |quantity|
   expect(Maker.count).to eq(quantity.to_i)
 end
 
