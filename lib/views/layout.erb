@@ -13,7 +13,7 @@
         <span id="username" ><%= current_user.name %></span>
         <form id="sign-out" method="post" action="/sessions">
           <input type="hidden" name="_method" value="delete">
-          <input type="submit" class="button bad" value="Sign Out">
+          <input type="submit" class="button" value="Sign Out">
         </form>
         <a href="/peeps/new" title="New Peep" class="button">New Peep</a>
       <% else %>

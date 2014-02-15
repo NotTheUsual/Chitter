@@ -20,18 +20,37 @@ body > header {
   color: @white;
   width: 100%;
   
+  #username {
+    margin-right: 1em;
+  }
+  
   .maker-links {
     float: right;
   }
   
   .button {
+    border: none;
     border-left: 1px solid rgba(255, 255, 255, 0.4);
     color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
+    font-size: 1rem;
+    line-height: 1em;
+    padding: 0.75em 1em;
+    margin: 0;
+    cursor: pointer;
     
     &:hover {
       color: @white;
       text-decoration: none;
     }
+    
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  form {
+    display: inline-block;
   }
   
   .clearfix;
@@ -43,7 +62,7 @@ body > header {
   text-decoration: none;
   font-family: @sans;
   font-size: 1.5em;
-  padding: 0.25em 0.5em;
+  padding: 0.333em 0.5em;
   float: left;
   
   &:hover {

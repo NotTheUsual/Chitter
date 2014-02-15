@@ -22,16 +22,32 @@ body > header {
   width: 100%;
   zoom: 1;
 }
+body > header #username {
+  margin-right: 1em;
+}
 body > header .maker-links {
   float: right;
 }
 body > header .button {
+  border: none;
   border-left: 1px solid rgba(255, 255, 255, 0.4);
   color: rgba(255, 255, 255, 0.8);
+  background-color: transparent;
+  font-size: 1rem;
+  line-height: 1em;
+  padding: 0.75em 1em;
+  margin: 0;
+  cursor: pointer;
 }
 body > header .button:hover {
   color: #ffffff;
   text-decoration: none;
+}
+body > header .button:focus {
+  outline: none;
+}
+body > header form {
+  display: inline-block;
 }
 body > header:before,
 body > header:after {
@@ -47,7 +63,7 @@ body > header:after {
   text-decoration: none;
   font-family: arial, sans-serif;
   font-size: 1.5em;
-  padding: 0.25em 0.5em;
+  padding: 0.333em 0.5em;
   float: left;
 }
 #logo:hover {
