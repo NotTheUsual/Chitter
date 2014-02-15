@@ -15,6 +15,7 @@ Feature: Maker posts a message
 		And I should see "just setting up my chttr"
 		And I should see "Enrique Comba Riepenhausen"
 		And I should see "ecomba"
+		And I should see the current date
 
 	Scenario: when logged out and on the new peep page
 		Given I am on the new peep page

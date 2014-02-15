@@ -80,9 +80,14 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     message = params[:message]
     maker = current_user
-    Peep.create(message: message, maker: maker)
+    Peep.create(message: message, maker: maker, time: Time.now)
     flash[:notice] = "Your peep has been posted!"
     redirect to('/')
+  end
+
+  get '/peeps/:id' do |id|
+    @peep = Peep.first(id: id)
+    erb :"peeps/peep"
   end
 
   helpers do
