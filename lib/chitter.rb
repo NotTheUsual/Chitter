@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -77,6 +78,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    message = params[:message]
+    maker = current_user
+    Peep.create(message: message, maker: maker)
     flash[:notice] = "Your peep has been posted!"
     redirect to('/')
   end

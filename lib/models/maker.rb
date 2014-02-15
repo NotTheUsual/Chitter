@@ -9,6 +9,8 @@ class Maker
   property :username, String, unique: true, message: "This username is already taken"
   property :password_digest, Text
 
+  has n, :peeps
+
   attr_reader :password
   attr_accessor :password_confirmation
   validates_confirmation_of :password

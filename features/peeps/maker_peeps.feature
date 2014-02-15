@@ -12,7 +12,9 @@ Feature: Maker posts a message
 		And I press "Peep"
 		Then I should be on the homepage
 		And I should see "Your peep has been posted!"
-
+		And I should see "just setting up my chttr"
+		And I should see "Enrique Comba Riepenhausen"
+		And I should see "ecomba"
 
 	Scenario: when logged out and on the new peep page
 		Given I am on the new peep page
