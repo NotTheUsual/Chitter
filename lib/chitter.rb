@@ -15,7 +15,6 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'Dinosaurs and spaceships'
   use Rack::Flash
-  use Rack::MethodOverride
 
 
   get('/makers/new') { MakersController.call(env) }
