@@ -4,12 +4,7 @@ require 'data_mapper'
 require 'sinatra/base'
 require 'rack-flash'
 
-DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
-
-Dir.glob(File.join(File.dirname(__FILE__), 'models', '*.rb'), &method(:require))
-
-DataMapper.finalize
-DataMapper.auto_upgrade!
+require_relative 'db_config'
 
 require_relative 'controllers/peeps'
 require_relative 'controllers/makers'
