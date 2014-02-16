@@ -6,6 +6,7 @@ require 'rack-flash'
 
 require_relative 'db_config'
 
+require_relative 'controllers/base'
 require_relative 'controllers/peeps'
 require_relative 'controllers/makers'
 require_relative 'controllers/login'

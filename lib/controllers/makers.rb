@@ -1,15 +1,6 @@
-require 'sinatra/partial'
+require_relative 'base'
 
-require_relative '../helpers/maker'
-
-class MakersController < Sinatra::Base
-	register Sinatra::Partial
-  set :partial_template_engine, :erb
-
-	set :views, File.join(File.dirname(__FILE__), '../views')
-
-	helpers MakerHelpers
-
+class MakersController < Base
 	get '/makers/new' do
     erb :"makers/new"
   end
