@@ -184,8 +184,8 @@ section {
   margin-top: 1em;
 }
 
-#sign-in {
-  margin: 0 auto 1em;;
+#sign-in, #sign-up, #new-peep {
+  margin: 0 auto;
   width: 500px;
   max-width: 100%;
   .clearfix;
@@ -209,18 +209,32 @@ input[type=email],input[type=password],input[type=url],input[type=text] {
   }
 }
 
-input[type=submit] {
+textarea {
+  background-color: white;
+  font-size: 1em;
+  padding: 0.75em 1em;
+  border: none;
+  .border-radius(3px);
+  display: block;
+  margin-top: 1em;
+  width: 500px;
+  max-width: 100%;
+  border: 1px solid @light-grey;
+  resize: none;
+}
+
+.form-button {
   margin-top: 0.75em;
   cursor: pointer;
   color: @white;
   background-color: @fb-blue;
   border: none;
-  padding: 0.5em 0.75em;
+  padding: 0.5em 1em;
   float: right;
   .border-radius(3px);
   .box-shadow(0,0,1px,0.4);
   
-  &:active {
+  &:focus, &:active {
     .box-shadow(0,0,0,0);
     .inner-shadow (0, 0, 1px, 0, 0.4);
     outline: none;
