@@ -25,26 +25,8 @@ class Chitter < Sinatra::Base
 
   helpers MakerHelpers
 
-  # get ('/makers/new') { MakersController.call(env) }
-  get '/makers/new' do
-    erb :"makers/new"
-  end
-
-  post '/makers' do
-    @maker = Maker.new( name: params[:name],
-                        username: params[:username],
-                        email: params[:email],
-                        password: params[:password],
-                        password_confirmation: params[:confirmation] )
-    if @maker.save
-      session[:maker_id] = @maker.id
-      flash[:notice] = "Welcome, #{@maker.name}"
-      redirect to('/')
-    else
-      flash[:errors] = @maker.errors.full_messages
-      redirect to('/makers/new')
-    end
-  end
+  get  ('/makers/new') { MakersController.call(env) }
+  post ('/makers')     { MakersController.call(env) }
 
   get '/' do
     @peeps = Peep.all(order: [ :time.desc ])
