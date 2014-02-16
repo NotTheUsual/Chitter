@@ -22,3 +22,11 @@ Feature: Maker replies to a peep
 		And I reply to that peep
 		When I am on the homepage
 		Then I should see "in reply to ecomba"
+
+	Scenario: Viewing a reply
+		Given I am already signed up
+		And I am already signed in
+		And I peep
+		And I reply to that peep
+		When I got to the page for that reply
+		Then I should see "just setting up my chttr"

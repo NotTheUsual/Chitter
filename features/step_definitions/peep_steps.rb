@@ -31,6 +31,10 @@ When(/^I follow the first date link$/) do
   first('.date').click
 end
 
+When(/^I got to the page for that reply$/) do
+  first('.date').click
+end
+
 Then /^(?:|I )should see the current date(?: within "([^\"]*)")?$/ do |selector|
 	t = Time.now
 	text = t.strftime "%b %-d"
