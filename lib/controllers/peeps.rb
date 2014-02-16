@@ -1,15 +1,6 @@
-require 'sinatra/partial'
+require_relative 'base'
 
-require_relative '../helpers/maker'
-
-class PeepsController < Sinatra::Base
-	register Sinatra::Partial
-  set :partial_template_engine, :erb
-
-	set :views, File.join(File.dirname(__FILE__), '../views')
-
-	helpers MakerHelpers
-
+class PeepsController < Base
 	get '/' do
     @peeps = Peep.all(order: [ :time.desc ])
     erb :index
