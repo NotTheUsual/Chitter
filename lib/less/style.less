@@ -7,6 +7,10 @@
 
 @sans: arial, sans-serif;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #e0e0e0;
 }
@@ -80,4 +84,42 @@ body > header {
   display: inline-block;
   font-family: @sans;
   padding: 0.5em 1em;
+}
+
+#peeps-container section {
+  background-color: @white;
+  width: 95%;
+  max-width: 600px;
+  padding: 0.75em 1em 1em;
+  font-family: @sans;
+  margin: 2em auto;
+  .border-radius(3px);
+  .box-shadow(0,0,1px,0.2);
+  
+  header {
+    padding-bottom: 0.5em;
+    margin-bottom: 0.75em;
+    border-bottom: 1px solid #ddd;
+    
+    .name {
+      margin-right: 0.25em;
+    }
+    
+    .username {
+      font-size: 0.8em;
+      color: #444;
+    }
+    
+    .date {
+      color: @fb-blue;
+      font-size: 0.8em;
+      float: right;
+    }
+    
+    .clearfix;
+  }
+  
+  .message {
+    line-height: 1.5em;
+  }
 }

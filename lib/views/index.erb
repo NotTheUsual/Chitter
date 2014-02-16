@@ -1,14 +1,14 @@
 <ul id="peeps-container">
   <% @peeps.each do |peep| %>
     <li>
-		  <section>
-		    <header>
-		    	<span class="name"><%= peep.maker.name %></span>
-		    	<span class="username"><%= peep.maker.username %></span>
-		    	<a href="/peeps/<%= peep.id %>" class="date"><%= peep.short_time %></a>
-		    </header>
-		    <div class="message"><%= peep.message %></div>
-		  </section>
-		</li>
+      <section>
+        <header>
+          <span class="name"><%= peep.maker.name %></span>
+          <span class="username">@<%= peep.maker.username %></span>
+          <a href="/peeps/<%= peep.id %>" class="date"><%= peep.short_time %></a>
+        </header>
+        <div class="message"><%= peep.message %></div>
+      </section>
+    </li>
   <% end %>
 </ul>

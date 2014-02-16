@@ -10,6 +10,9 @@
 .clearfix:after {
   clear: both;
 }
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: #e0e0e0;
 }
@@ -78,4 +81,50 @@ body > header:after {
   display: inline-block;
   font-family: arial, sans-serif;
   padding: 0.5em 1em;
+}
+#peeps-container section {
+  background-color: #ffffff;
+  width: 95%;
+  max-width: 600px;
+  padding: 0.75em 1em 1em;
+  font-family: arial, sans-serif;
+  margin: 2em auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+#peeps-container section header {
+  padding-bottom: 0.5em;
+  margin-bottom: 0.75em;
+  border-bottom: 1px solid #ddd;
+  zoom: 1;
+}
+#peeps-container section header .name {
+  margin-right: 0.25em;
+}
+#peeps-container section header .username {
+  font-size: 0.8em;
+  color: #444;
+}
+#peeps-container section header .date {
+  color: #4c66a4;
+  font-size: 0.8em;
+  float: right;
+}
+#peeps-container section header:before,
+#peeps-container section header:after {
+  content: "";
+  display: table;
+}
+#peeps-container section header:after {
+  clear: both;
+}
+#peeps-container section .message {
+  line-height: 1.5em;
 }
