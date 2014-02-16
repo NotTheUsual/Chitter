@@ -20,9 +20,18 @@ class PeepsController < Base
   post '/peeps' do
     message = params[:message]
     maker = current_user
-    Peep.create(message: message, maker: maker, time: Time.now)
-    flash[:notice] = "Your peep has been posted!"
-    redirect to('/')
+    if params[:original_id]
+      original = Peep.first(id: params[:original_id])
+      reply = Peep.create(message: message, maker: maker, time: Time.now)
+      original.replies << reply
+      original.save
+      flash[:notice] = "Your reply has been posted!"
+      redirect to("/peeps/#{params[:original_id]}")
+    else
+      Peep.create(message: message, maker: maker, time: Time.now)
+      flash[:notice] = "Your peep has been posted!"
+      redirect to('/')
+    end
   end
 
   get '/peeps/:id' do |id|

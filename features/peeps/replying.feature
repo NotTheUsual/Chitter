@@ -13,3 +13,4 @@ Feature: Maker replies to a peep
 		And I press "Reply"
 		Then I should see "just setting up my chttr"
 		And I should see "Cool peep!"
+		And I should see the full time the peep was created

@@ -1,10 +1,25 @@
 <section class="peep full">
   <header>
-  	<span class="name"><%= @peep.maker.name %></span>
-  	<span class="username">@<%= @peep.maker.username %></span>
+    <span class="name"><%= @peep.maker.name %></span>
+    <span class="username">@<%= @peep.maker.username %></span>
   </header>
   <div class="message"><%= @peep.message %></div>
   <footer>
-  	<span class="date"><%= @peep.long_time %></span>
+    <span class="date"><%= @peep.long_time %></span>
   </footer>
 </section>
+<form method="post" action="/peeps" id="peep-reply">
+  <textarea name="message" spellcheck="true" placeholder="Reply" maxlength="140" rows="1" required></textarea>
+  <input type="hidden" name="original_id" value="<%= @peep.id %>" />
+  <input type="submit" name="Peep" value="Reply" class="form-button peep-button" />
+</form>
+<% @peep.replies.each do |peep| %>
+  <section class="peep">
+    <header>
+      <span class="name"><%= peep.maker.name %></span>
+      <span class="username">@<%= peep.maker.username %></span>
+      <a href="/peeps/<%= peep.id %>" class="date"><%= peep.short_time %></a>
+    </header>
+    <div class="message"><%= peep.message %></div>
+  </section>
+<% end %>
