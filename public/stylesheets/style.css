@@ -83,6 +83,9 @@ body > header:after {
   font-family: arial, sans-serif;
   padding: 0.5em 1em;
 }
+.button.peep-button {
+  background-color: #41aad1;
+}
 section {
   background-color: #ffffff;
   width: 95%;
@@ -180,6 +183,9 @@ section small {
 .flash + #peeps-container .peep:first-child {
   margin-top: 1em;
 }
+.flash + section {
+  margin-top: 1em;
+}
 #sign-in,
 #sign-up,
 #new-peep {
@@ -249,6 +255,7 @@ textarea {
 }
 .form-button {
   margin-top: 0.75em;
+  font-size: 0.8em;
   cursor: pointer;
   color: #ffffff;
   background-color: #4c66a4;
@@ -261,17 +268,20 @@ textarea {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
 .form-button:focus,
 .form-button:active {
   -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  -webkit-box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.6);
   outline: none;
+}
+.form-button.peep-button {
+  background-color: #41aad1;
 }
