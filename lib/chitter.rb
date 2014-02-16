@@ -13,6 +13,7 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 require_relative 'helpers/maker'
+require_relative 'controllers/peeps'
 require_relative 'controllers/makers'
 
 class Chitter < Sinatra::Base
@@ -25,13 +26,13 @@ class Chitter < Sinatra::Base
 
   helpers MakerHelpers
 
-  get  ('/makers/new') { MakersController.call(env) }
-  post ('/makers')     { MakersController.call(env) }
+  get('/makers/new') { MakersController.call(env) }
+  post('/makers')    { MakersController.call(env) }
 
-  get '/' do
-    @peeps = Peep.all(order: [ :time.desc ])
-    erb :index
-  end
+  get('/')          { PeepsController.call(env) }
+  get('/peeps/new') { PeepsController.call(env) }
+  post('/peeps')    { PeepsController.call(env) }
+  get('/peeps/:id') { PeepsController.call(env) }
 
   get '/sessions/new' do
     session[:login_location] ||= '/'
@@ -58,28 +59,6 @@ class Chitter < Sinatra::Base
     redirect to('/')
   end
 
-  get '/peeps/new' do
-    if session[:maker_id]
-      erb :"peeps/new"
-    else
-      flash[:errors] = ["Please sign in to post a peep"]
-      session[:login_location] = '/peeps/new'
-      redirect to('/sessions/new')
-    end
-  end
-
-  post '/peeps' do
-    message = params[:message]
-    maker = current_user
-    Peep.create(message: message, maker: maker, time: Time.now)
-    flash[:notice] = "Your peep has been posted!"
-    redirect to('/')
-  end
-
-  get '/peeps/:id' do |id|
-    @peep = Peep.first(id: id)
-    erb :"peeps/peep"
-  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
