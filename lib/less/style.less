@@ -3,6 +3,7 @@
 @import '_mixins.less';
 
 @fb-blue: #4c66a4;
+@fb-alert: #cee8ff;
 @white: #fff;
 
 @sans: arial, sans-serif;
@@ -138,4 +139,20 @@ body > header {
       }
     }
   }
+}
+
+.flash {
+//  background-color: @fb-alert;
+  color: @fb-blue;
+  width: 95%;
+  max-width: 600px;
+  margin: 1em auto;
+  font-family: @sans;
+  padding: 0.5em;
+  text-align: center;
+  .border-radius(2px);
+}
+
+.flash + #peeps-container .peep:first-child {
+  margin-top: 1em;
 }
