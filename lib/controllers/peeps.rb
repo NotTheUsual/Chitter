@@ -2,6 +2,7 @@ require_relative 'base'
 
 class PeepsController < Base
 	get '/' do
+    session[:login_location] = '/' unless session[:maker_id]
     @peeps = Peep.all(order: [ :time.desc ])
     erb :index
   end
