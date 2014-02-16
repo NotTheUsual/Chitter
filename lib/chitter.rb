@@ -12,6 +12,9 @@ Dir.glob(File.join(File.dirname(__FILE__), 'models', '*.rb'), &method(:require))
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
+require_relative 'helpers/maker'
+require_relative 'controllers/makers'
+
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'Dinosaurs and spaceships'
@@ -20,11 +23,9 @@ class Chitter < Sinatra::Base
   use Rack::Flash
   use Rack::MethodOverride
 
-  get '/' do
-    @peeps = Peep.all(order: [ :time.desc ])
-    erb :index
-  end
+  helpers MakerHelpers
 
+  # get ('/makers/new') { MakersController.call(env) }
   get '/makers/new' do
     erb :"makers/new"
   end
@@ -43,6 +44,11 @@ class Chitter < Sinatra::Base
       flash[:errors] = @maker.errors.full_messages
       redirect to('/makers/new')
     end
+  end
+
+  get '/' do
+    @peeps = Peep.all(order: [ :time.desc ])
+    erb :index
   end
 
   get '/sessions/new' do
@@ -91,12 +97,6 @@ class Chitter < Sinatra::Base
   get '/peeps/:id' do |id|
     @peep = Peep.first(id: id)
     erb :"peeps/peep"
-  end
-
-  helpers do
-    def current_user    
-      @current_user ||=Maker.get(session[:maker_id]) if session[:maker_id]
-    end
   end
 
   # start the server if ruby file executed directly
