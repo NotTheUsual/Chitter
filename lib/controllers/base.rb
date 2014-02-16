@@ -4,6 +4,8 @@ require 'rack-flash'
 require_relative '../helpers/maker'
 
 class Base < Sinatra::Base
+	enable :sessions
+  set :session_secret, 'Dinosaurs and spaceships'
 	register Sinatra::Partial
   set :partial_template_engine, :erb
   use Rack::MethodOverride

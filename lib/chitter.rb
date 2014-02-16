@@ -3,7 +3,6 @@ env = ENV['RACK_ENV'] || "development"
 require 'data_mapper'
 require 'sinatra/base'
 
-
 require_relative 'db_config'
 
 require_relative 'controllers/base'
@@ -12,9 +11,6 @@ require_relative 'controllers/makers'
 require_relative 'controllers/login'
 
 class Chitter < Sinatra::Base
-  enable :sessions
-  set :session_secret, 'Dinosaurs and spaceships'
-
   set :public_folder, File.join(File.dirname(__FILE__), '../public')
 
   get('/makers/new') { MakersController.call(env) }
