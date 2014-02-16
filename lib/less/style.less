@@ -3,8 +3,11 @@
 @import '_mixins.less';
 
 @fb-blue: #4c66a4;
-@fb-alert: #cee8ff;
+@alert-red: #ba4e4e;
+
 @white: #fff;
+@dark-grey: #444;
+@light-grey: #ddd;
 
 @sans: arial, sans-serif;
 
@@ -18,6 +21,7 @@ body {
 
 a {
   text-decoration: none;
+  color: @fb-blue;
   
   &:hover {
     text-decoration: underline;
@@ -87,6 +91,27 @@ body > header {
   padding: 0.5em 1em;
 }
 
+section {
+  background-color: @white;
+  width: 95%;
+  max-width: 600px;
+  padding: 0.75em 1em 1em;
+  font-family: @sans;
+  margin: 2em auto;
+  .border-radius(3px);
+  .box-shadow(0,0,1px,0.2);
+  
+  h1 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.4em;
+  }
+  
+  small {
+    font-size: 0.8em;
+  }
+}
+
 .peep {
   background-color: @white;
   width: 95%;
@@ -100,7 +125,7 @@ body > header {
   header {
     padding-bottom: 0.5em;
     margin-bottom: 0.75em;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid @light-grey;
     
     .name {
       margin-right: 0.25em;
@@ -109,7 +134,7 @@ body > header {
     
     .username {
       font-size: 0.8em;
-      color: #444;
+      color: @dark-grey;
     }
     
     .date {
@@ -135,14 +160,13 @@ body > header {
       
       .date {
         font-size: 0.8em;
-        color: #444;
+        color: @dark-grey;
       }
     }
   }
 }
 
 .flash {
-//  background-color: @fb-alert;
   color: @fb-blue;
   width: 95%;
   max-width: 600px;
@@ -150,9 +174,55 @@ body > header {
   font-family: @sans;
   padding: 0.5em;
   text-align: center;
-  .border-radius(2px);
+  
+  &.errors {
+    color: @alert-red;
+  }
 }
 
 .flash + #peeps-container .peep:first-child {
   margin-top: 1em;
+}
+
+#sign-in {
+  margin: 0 auto 1em;;
+  width: 500px;
+  max-width: 100%;
+  .clearfix;
+}
+
+input[type=email],input[type=password],input[type=url],input[type=text] {
+  background-color: white;
+  font-size: 1em;
+  padding: 0.75em 1em;
+  border: none;
+  .border-radius(3px);
+  display: block;
+  margin-top: 1em;
+  width: 500px;
+  max-width: 100%;
+  border: 1px solid @light-grey;
+  
+  &:focus {
+    outline: none;
+    border: 1px solid @fb-blue;
+  }
+}
+
+input[type=submit] {
+  margin-top: 0.75em;
+  cursor: pointer;
+  color: @white;
+  background-color: @fb-blue;
+  border: none;
+  padding: 0.5em 0.75em;
+  float: right;
+  .border-radius(3px);
+  .box-shadow(0,0,1px,0.4);
+  
+  &:active {
+    .box-shadow(0,0,0,0);
+    .inner-shadow (0, 0, 1px, 0, 0.4);
+    outline: none;
+  }
 }

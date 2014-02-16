@@ -18,6 +18,7 @@ body {
 }
 a {
   text-decoration: none;
+  color: #4c66a4;
 }
 a:hover {
   text-decoration: underline;
@@ -82,6 +83,31 @@ body > header:after {
   font-family: arial, sans-serif;
   padding: 0.5em 1em;
 }
+section {
+  background-color: #ffffff;
+  width: 95%;
+  max-width: 600px;
+  padding: 0.75em 1em 1em;
+  font-family: arial, sans-serif;
+  margin: 2em auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+section h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+section small {
+  font-size: 0.8em;
+}
 .peep {
   background-color: #ffffff;
   width: 95%;
@@ -102,7 +128,7 @@ body > header:after {
 .peep header {
   padding-bottom: 0.5em;
   margin-bottom: 0.75em;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
   zoom: 1;
 }
 .peep header .name {
@@ -111,7 +137,7 @@ body > header:after {
 }
 .peep header .username {
   font-size: 0.8em;
-  color: #444;
+  color: #444444;
 }
 .peep header .date {
   color: #4c66a4;
@@ -137,7 +163,7 @@ body > header:after {
 }
 .peep.full footer .date {
   font-size: 0.8em;
-  color: #444;
+  color: #444444;
 }
 .flash {
   color: #4c66a4;
@@ -147,13 +173,78 @@ body > header:after {
   font-family: arial, sans-serif;
   padding: 0.5em;
   text-align: center;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
+}
+.flash.errors {
+  color: #ba4e4e;
 }
 .flash + #peeps-container .peep:first-child {
   margin-top: 1em;
+}
+#sign-in {
+  margin: 0 auto 1em;
+  width: 500px;
+  max-width: 100%;
+  zoom: 1;
+}
+#sign-in:before,
+#sign-in:after {
+  content: "";
+  display: table;
+}
+#sign-in:after {
+  clear: both;
+}
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=text] {
+  background-color: white;
+  font-size: 1em;
+  padding: 0.75em 1em;
+  border: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  display: block;
+  margin-top: 1em;
+  width: 500px;
+  max-width: 100%;
+  border: 1px solid #dddddd;
+}
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=url]:focus,
+input[type=text]:focus {
+  outline: none;
+  border: 1px solid #4c66a4;
+}
+input[type=submit] {
+  margin-top: 0.75em;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #4c66a4;
+  border: none;
+  padding: 0.5em 0.75em;
+  float: right;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+}
+input[type=submit]:active {
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.4);
+  outline: none;
 }
