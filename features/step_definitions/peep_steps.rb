@@ -27,11 +27,15 @@ Given(/^I reply to that peep$/) do
   click_button("Reply")
 end
 
+Given(/^I sign out$/) do
+  click_button("Sign Out")
+end
+
 When(/^I follow the first date link$/) do
   first('.date').click
 end
 
-When(/^I got to the page for that reply$/) do
+When(/^I visit the page for that reply$/) do
   first('.date').click
 end
 
