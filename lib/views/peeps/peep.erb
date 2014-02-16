@@ -1,11 +1,11 @@
 <% if @peep.original %>
   <% peep = @peep.original %>
   <% if peep.original %>
-    <section class="peep original">
+    <section class="peep more-originals">
       <div class="message"><a href="/peeps/<%= peep.original.id %>">In reply to <%= peep.original.maker.name %></a></div>
     </section>
   <% end %>
-  <section class="peep original">
+  <section class="peep original<%= ' with-originals' if peep.original %>">
     <header>
       <span class="name"><%= peep.maker.name %></span>
       <span class="username">@<%= peep.maker.username %></span>
@@ -14,7 +14,7 @@
     <div class="message"><%= peep.message %></div>
   </section>
 <% end %>
-<section class="peep full">
+<section class="peep full<%= ' with-reply' if current_user %>">
   <header>
     <span class="name"><%= @peep.maker.name %></span>
     <span class="username">@<%= @peep.maker.username %></span>
@@ -24,13 +24,17 @@
     <span class="date"><%= @peep.long_time %></span>
   </footer>
 </section>
-<form method="post" action="/peeps" id="peep-reply">
-  <textarea name="message" spellcheck="true" placeholder="Reply" maxlength="140" rows="1" required></textarea>
-  <input type="hidden" name="original_id" value="<%= @peep.id %>" />
-  <input type="submit" name="Peep" value="Reply" class="form-button peep-button" />
-</form>
+<% if current_user %>
+  <section class="reply-form">
+    <form method="post" action="/peeps" id="peep-reply">
+      <input type="text" name="message" spellcheck="true" placeholder="Start a conversation" maxlength="140" required />
+      <input type="hidden" name="original_id" value="<%= @peep.id %>" />
+      <input type="submit" name="Peep" value="Reply" class="form-button peep-button" />
+    </form>
+  </section>
+<% end %>
 <% @peep.replies.each do |peep| %>
-  <section class="peep reply">
+  <section class="peep reply<%= ' with-reply' unless peep.replies.empty? %>">
     <header>
       <span class="name"><%= peep.maker.name %></span>
       <span class="username">@<%= peep.maker.username %></span>

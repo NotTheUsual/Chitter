@@ -5,6 +5,7 @@
 @fb-blue: #4c66a4;
 @tw-blue: #41aad1;
 @alert-red: #ba4e4e;
+@light-blue: #e2e8f7;
 
 @white: #fff;
 @dark-grey: #444;
@@ -169,6 +170,9 @@ section {
   }
   
   &.full {
+    header .name {
+      font-size: 1.1em;
+    }
     .message {
       font-size: 1.25em;
     }
@@ -243,6 +247,11 @@ textarea {
   max-width: 100%;
   border: 1px solid @light-grey;
   resize: none;
+  
+  &:focus {
+    outline: none;
+    border: 1px solid @fb-blue;
+  }
 }
 
 .form-button {
@@ -266,4 +275,62 @@ textarea {
   &.peep-button {
     background-color: @tw-blue;
   }
+}
+
+section.with-reply {
+  .border-radiuses (3px, 0, 0, 3px);
+}
+
+section.with-originals {
+  .border-radiuses (0, 3px, 3px, 0);
+}
+
+section.reply-form {
+  background-color: @light-blue;
+  margin-top: -1.969em;
+  .border-radiuses (0, 3px, 3px, 0);
+  
+  form {
+    .clearfix;
+  }
+  
+  .form-button {
+    margin: 0;
+    margin-top: 1px;
+  }
+  
+  input[type=text] {
+    font-size: 0.75em;
+    padding: 0.6em 1em;
+    margin: 0;
+    float: left;
+  }
+}
+
+.peep.reply {
+  background-color: #f4f4f4;
+  margin-top: -1em;
+}
+
+.peep.original {
+  background-color: #f4f4f4;
+  margin-bottom: -1em;
+}
+
+section.more-replies {
+  background-color: @light-blue;
+  margin-top: -2.451em;
+  .border-radiuses (0, 3px, 3px, 0);
+  font-size: 0.8em;
+}
+
+section.more-originals {
+  background-color: @light-blue;
+  font-size: 0.8em;
+  margin-bottom: -2.47em;
+  .border-radiuses (3px, 0, 0, 3px);
+}
+
+.reply ~ .reply {
+  margin-top: -1.25em;
 }
