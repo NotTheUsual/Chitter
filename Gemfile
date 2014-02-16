@@ -4,6 +4,7 @@ ruby '2.1.0'
 
 gem 'sinatra'
 gem 'rack-flash3'
+gem 'sinatra-partial'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
