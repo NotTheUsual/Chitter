@@ -379,6 +379,13 @@ section.reply-form input[type=text] {
 .peep.reply {
   background-color: #f4f4f4;
   margin-top: -1em;
+  color: #444444;
+}
+.peep.reply header .date {
+  color: #444444;
+}
+.peep.reply header .date:hover {
+  color: #4c66a4;
 }
 .peep.original {
   background-color: #f4f4f4;
