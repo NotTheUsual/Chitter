@@ -15,6 +15,7 @@ DataMapper.auto_upgrade!
 require_relative 'helpers/maker'
 require_relative 'controllers/peeps'
 require_relative 'controllers/makers'
+require_relative 'controllers/login'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -34,30 +35,9 @@ class Chitter < Sinatra::Base
   post('/peeps')    { PeepsController.call(env) }
   get('/peeps/:id') { PeepsController.call(env) }
 
-  get '/sessions/new' do
-    session[:login_location] ||= '/'
-    erb :"sessions/new"
-  end
-
-  post '/sessions' do
-    username, password = params[:username], params[:password]
-    maker = Maker.authenticate(username, password)
-    if maker
-      session[:maker_id] = maker.id
-      flash[:notice] = "Welcome, #{maker.name}"
-      redirect to(session[:login_location])
-    else
-      flash[:errors] = ["The email or password are incorrect"]
-      redirect to('/sessions/new')
-    end
-  end
-
-  delete '/sessions' do
-    flash[:notice] = "Goodbye!"
-    session[:maker_id] = nil
-    session[:login_location]
-    redirect to('/')
-  end
+  get('/sessions/new') { LoginController.call(env) }
+  post('/sessions')    { LoginController.call(env) }
+  delete('/sessions')  { LoginController.call(env) }
 
 
   # start the server if ruby file executed directly
