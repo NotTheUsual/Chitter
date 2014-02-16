@@ -142,6 +142,16 @@ section small {
   font-size: 0.8em;
   color: #444444;
 }
+.peep header .parent-link {
+  font-size: 0.8em;
+  margin-left: 0.5em;
+}
+.peep header .parent-link a {
+  color: #999;
+}
+.peep header .parent-link a:hover {
+  color: #4c66a4;
+}
 .peep header .date {
   color: #4c66a4;
   font-size: 0.8em;
