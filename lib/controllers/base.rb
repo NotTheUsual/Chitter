@@ -8,6 +8,6 @@ class Base < Sinatra::Base
   use Rack::MethodOverride
 
 	set :views, File.join(File.dirname(__FILE__), '../views')
-
+	
 	helpers MakerHelpers
 end

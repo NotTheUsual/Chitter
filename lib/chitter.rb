@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'Dinosaurs and spaceships'
   use Rack::Flash
 
+  set :public_folder, File.join(File.dirname(__FILE__), '../public')
 
   get('/makers/new') { MakersController.call(env) }
   post('/makers')    { MakersController.call(env) }
