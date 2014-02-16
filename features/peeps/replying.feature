@@ -14,3 +14,11 @@ Feature: Maker replies to a peep
 		Then I should see "just setting up my chttr"
 		And I should see "Cool peep!"
 		And I should see the full time the peep was created
+
+	Scenario: In the main feed
+		Given I am already signed up
+		And I am already signed in
+		And I peep
+		And I reply to that peep
+		When I am on the homepage
+		Then I should see "in reply to ecomba"

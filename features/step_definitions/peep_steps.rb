@@ -21,6 +21,12 @@ Given(/^I peep again$/) do
   click_button("Peep")
 end
 
+Given(/^I reply to that peep$/) do
+  first('.date').click
+  fill_in("message", with: "First reply!")
+  click_button("Reply")
+end
+
 When(/^I follow the first date link$/) do
   first('.date').click
 end

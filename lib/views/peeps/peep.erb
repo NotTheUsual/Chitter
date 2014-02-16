@@ -1,3 +1,19 @@
+<% if @peep.original %>
+  <% peep = @peep.original %>
+  <% if peep.original %>
+    <section class="peep original">
+      <div class="message"><a href="/peeps/<%= peep.original.id %>">In reply to <%= peep.original.maker.name %></a></div>
+    </section>
+  <% end %>
+  <section class="peep original">
+    <header>
+      <span class="name"><%= peep.maker.name %></span>
+      <span class="username">@<%= peep.maker.username %></span>
+      <a href="/peeps/<%= peep.id %>" class="date"><%= peep.short_time %></a>
+    </header>
+    <div class="message"><%= peep.message %></div>
+  </section>
+<% end %>
 <section class="peep full">
   <header>
     <span class="name"><%= @peep.maker.name %></span>
@@ -14,7 +30,7 @@
   <input type="submit" name="Peep" value="Reply" class="form-button peep-button" />
 </form>
 <% @peep.replies.each do |peep| %>
-  <section class="peep">
+  <section class="peep reply">
     <header>
       <span class="name"><%= peep.maker.name %></span>
       <span class="username">@<%= peep.maker.username %></span>
@@ -22,4 +38,9 @@
     </header>
     <div class="message"><%= peep.message %></div>
   </section>
+  <% unless peep.replies.empty? %>
+    <section class="more-replies">
+      <div class="message"><a href="/peeps/<%= peep.id %>"><%= peep.replies.length %> more replies to <%= peep.maker.name %></a></div>
+    </section>
+  <% end %>
 <% end %>
