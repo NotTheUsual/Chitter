@@ -22,15 +22,7 @@
       <% end %>
     </div>
   </header>
-
-  <% if flash[:notice] %>
-    <div class="flash"><%= flash[:notice] %></div>
-  <% end %>
-  <% if flash[:errors] && !flash[:errors].empty? %>
-    <% flash[:errors].each do |error| %>
-      <div class="flash errors"><%= error %></div>
-    <% end %>
-  <% end %>
+  <%= partial :flash %>
   <%= yield %>
 </body>
 </html>

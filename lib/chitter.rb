@@ -2,6 +2,7 @@ env = ENV['RACK_ENV'] || "development"
 
 require 'data_mapper'
 require 'sinatra/base'
+require 'sinatra/partial'
 require 'rack-flash'
 
 DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
@@ -14,6 +15,8 @@ DataMapper.auto_upgrade!
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'Dinosaurs and spaceships'
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
   use Rack::Flash
   use Rack::MethodOverride
 
