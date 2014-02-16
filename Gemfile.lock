@@ -24,6 +24,7 @@ GEM
       multi_test (>= 0.0.2)
     cucumber-sinatra (0.5.0)
       templater (>= 1.0.0)
+    daemons (1.1.9)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -73,6 +74,7 @@ GEM
       dm-core (~> 1.2.0)
     do_postgres (0.10.14)
       data_objects (= 0.10.14)
+    eventmachine (1.0.3)
     extlib (0.9.16)
     fastercsv (1.5.5)
     gherkin (2.12.2)
@@ -114,6 +116,10 @@ GEM
       diff-lcs (>= 1.1.2)
       extlib (>= 0.9.5)
       highline (>= 1.4.0)
+    thin (1.6.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+      rack (>= 1.0.0)
     tilt (1.4.1)
     uuidtools (2.1.4)
     xpath (2.0.0)
@@ -135,3 +141,4 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-partial
+  thin

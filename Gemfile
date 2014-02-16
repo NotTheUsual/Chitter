@@ -11,6 +11,10 @@ gem 'dm-postgres-adapter'
 
 gem 'bcrypt-ruby'
 
+group :staging, :production do
+	gem 'thin'
+end
+
 group :development, :test do
   gem 'rspec'
   gem 'capybara'
