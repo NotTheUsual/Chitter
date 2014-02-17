@@ -3,7 +3,7 @@
 
   <% if peep.original %>
     <section class="peep more-originals">
-      <div class="message"><a href="/peeps/<%= peep.original.id %>">In reply to <%= peep.original.maker.name %></a></div>
+      <p class="message"><a href="/peeps/<%= peep.original.id %>">In reply to <%= peep.original.maker.name %></a></p>
     </section>
   <% end %>
   <%= partial :"peeps/small", locals: { peep: peep, peep_class: " original" } %>
@@ -14,7 +14,7 @@
     <span class="name"><%= @peep.maker.name %></span>
     <span class="username">@<%= @peep.maker.username %></span>
   </header>
-  <div class="message"><%= @peep.message %></div>
+  <p class="message"><%= @peep.message %></p>
   <footer>
     <span class="date"><%= @peep.long_time %></span>
   </footer>
@@ -34,8 +34,7 @@
   <%= partial :"peeps/small", locals: { peep: peep, peep_class: " reply" } %>
   <% unless peep.replies.empty? %>
     <section class="more-replies">
-      <div class="message"><a href="/peeps/<%= peep.id %>"><%= peep.replies.length %> more replies to <%= peep.maker.name %></a></div>
+      <p class="message"><a href="/peeps/<%= peep.id %>"><%= peep.replies.length %> more replies to <%= peep.maker.name %></a></p>
     </section>
   <% end %>
-
 <% end %>
