@@ -6,7 +6,7 @@
       <div class="message"><a href="/peeps/<%= peep.original.id %>">In reply to <%= peep.original.maker.name %></a></div>
     </section>
   <% end %>
-  <%= partial :"peeps/small_peep", locals: { peep: peep, peep_class: "original" } %>
+  <%= partial :"peeps/small", locals: { peep: peep, peep_class: " original" } %>
 <% end %>
 
 <section class="peep full<%= ' with-reply' if current_user %>">
@@ -31,7 +31,7 @@
 <% end %>
 
 <% @peep.replies.each do |peep| %>
-  <%= partial :"peeps/small_peep", locals: { peep: peep, peep_class: "reply" } %>
+  <%= partial :"peeps/small", locals: { peep: peep, peep_class: " reply" } %>
   <% unless peep.replies.empty? %>
     <section class="more-replies">
       <div class="message"><a href="/peeps/<%= peep.id %>"><%= peep.replies.length %> more replies to <%= peep.maker.name %></a></div>
