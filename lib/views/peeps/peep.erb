@@ -1,19 +1,14 @@
 <% if @peep.original %>
   <% peep = @peep.original %>
+
   <% if peep.original %>
     <section class="peep more-originals">
       <div class="message"><a href="/peeps/<%= peep.original.id %>">In reply to <%= peep.original.maker.name %></a></div>
     </section>
   <% end %>
-  <section class="peep original<%= ' with-originals' if peep.original %>">
-    <header>
-      <span class="name"><%= peep.maker.name %></span>
-      <span class="username">@<%= peep.maker.username %></span>
-      <a href="/peeps/<%= peep.id %>" class="date"><%= peep.short_time %></a>
-    </header>
-    <div class="message"><%= peep.message %></div>
-  </section>
+  <%= partial :"peeps/small_peep", locals: { peep: peep, peep_class: "original" } %>
 <% end %>
+
 <section class="peep full<%= ' with-reply' if current_user %>">
   <header>
     <span class="name"><%= @peep.maker.name %></span>
@@ -24,6 +19,7 @@
     <span class="date"><%= @peep.long_time %></span>
   </footer>
 </section>
+
 <% if current_user %>
   <section class="reply-form">
     <form method="post" action="/peeps" id="peep-reply">
@@ -33,18 +29,13 @@
     </form>
   </section>
 <% end %>
+
 <% @peep.replies.each do |peep| %>
-  <section class="peep reply<%= ' with-reply' unless peep.replies.empty? %>">
-    <header>
-      <span class="name"><%= peep.maker.name %></span>
-      <span class="username">@<%= peep.maker.username %></span>
-      <a href="/peeps/<%= peep.id %>" class="date"><%= peep.short_time %></a>
-    </header>
-    <div class="message"><%= peep.message %></div>
-  </section>
+  <%= partial :"peeps/small_peep", locals: { peep: peep, peep_class: "reply" } %>
   <% unless peep.replies.empty? %>
     <section class="more-replies">
       <div class="message"><a href="/peeps/<%= peep.id %>"><%= peep.replies.length %> more replies to <%= peep.maker.name %></a></div>
     </section>
   <% end %>
+
 <% end %>
