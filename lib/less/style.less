@@ -314,7 +314,7 @@ section.reply-form {
   color: @dark-grey;
   
   header .date {
-    color: @dark-grey;
+    color: darken(@fb-blue, 15%);
     
     &:hover {
       color: @fb-blue;
@@ -325,6 +325,14 @@ section.reply-form {
 .peep.original {
   background-color: #f4f4f4;
   margin-bottom: -1em;
+  
+  header .date {
+    color: darken(@fb-blue, 15%);
+    
+    &:hover {
+      color: @fb-blue;
+    }
+  }
 }
 
 section.more-replies {
@@ -334,7 +342,7 @@ section.more-replies {
   .border-radiuses (0, 3px, 3px, 0);
   
   a {
-    color: @dark-grey;
+    color: darken(@fb-blue, 15%);
     
     &:hover {
       color: @fb-blue;
@@ -350,7 +358,7 @@ section.more-originals {
   padding: 0.75em 1em;
   
   a {
-    color: @dark-grey;
+    color: darken(@fb-blue, 15%);
     
     &:hover {
       color: @fb-blue;

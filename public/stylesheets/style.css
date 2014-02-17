@@ -383,7 +383,7 @@ section.reply-form input[type=text] {
   color: #444444;
 }
 .peep.reply header .date {
-  color: #444444;
+  color: #344570;
 }
 .peep.reply header .date:hover {
   color: #4c66a4;
@@ -391,6 +391,12 @@ section.reply-form input[type=text] {
 .peep.original {
   background-color: #f4f4f4;
   margin-bottom: -1em;
+}
+.peep.original header .date {
+  color: #344570;
+}
+.peep.original header .date:hover {
+  color: #4c66a4;
 }
 section.more-replies {
   background-color: #ebebeb;
@@ -413,7 +419,7 @@ section.more-replies {
   background-clip: padding-box;
 }
 section.more-replies a {
-  color: #444444;
+  color: #344570;
 }
 section.more-replies a:hover {
   color: #4c66a4;
@@ -440,7 +446,7 @@ section.more-originals {
   padding: 0.75em 1em;
 }
 section.more-originals a {
-  color: #444444;
+  color: #344570;
 }
 section.more-originals a:hover {
   color: #4c66a4;
