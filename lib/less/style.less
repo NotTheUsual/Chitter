@@ -287,8 +287,9 @@ section.with-originals {
 
 section.reply-form {
   background-color: @light-blue;
-  margin-top: -1.969em;
+  margin-top: -2em;
   .border-radiuses (0, 3px, 3px, 0);
+  border-top: 1px solid rgba(232, 232, 232, 0.74);
   
   form {
     .clearfix;
@@ -327,17 +328,34 @@ section.reply-form {
 }
 
 section.more-replies {
-  background-color: @light-blue;
-  margin-top: -2.451em;
-  .border-radiuses (0, 3px, 3px, 0);
+  background-color: #ebebeb;
   font-size: 0.8em;
+  margin-top: -2.5em;
+  .border-radiuses (0, 3px, 3px, 0);
+  
+  a {
+    color: @dark-grey;
+    
+    &:hover {
+      color: @fb-blue;
+    }
+  }
 }
 
 section.more-originals {
-  background-color: @light-blue;
+  background-color: #ebebeb;
   font-size: 0.8em;
-  margin-bottom: -2.47em;
+  margin-bottom: -2.5em;
   .border-radiuses (3px, 0, 0, 3px);
+  padding: 0.75em 1em;
+  
+  a {
+    color: @dark-grey;
+    
+    &:hover {
+      color: @fb-blue;
+    }
+  }
 }
 
 .reply ~ .reply {
