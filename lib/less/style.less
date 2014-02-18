@@ -41,6 +41,18 @@ section {
   }
 }
 
+.button {
+  color: @white;
+  text-decoration: none;
+  display: inline-block;
+  font-family: @sans;
+  padding: 0.5em 1em;
+  
+  &.peep-button {
+    background-color: @peep-colour;
+  }
+}
+
 // Header
 //-------------------------
 
@@ -96,18 +108,6 @@ body > header {
   
   &:hover {
     text-decoration: none;
-  }
-}
-
-.button {
-  color: @white;
-  text-decoration: none;
-  display: inline-block;
-  font-family: @sans;
-  padding: 0.5em 1em;
-  
-  &.peep-button {
-    background-color: @peep-colour;
   }
 }
 

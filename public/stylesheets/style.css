@@ -48,6 +48,16 @@ section h1 {
 section small {
   font-size: 0.8em;
 }
+.button {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  font-family: arial, sans-serif;
+  padding: 0.5em 1em;
+}
+.button.peep-button {
+  background-color: #41aad1;
+}
 body > header {
   background-color: #4c66a4;
   color: #ffffff;
@@ -100,16 +110,6 @@ body > header:after {
 }
 #logo:hover {
   text-decoration: none;
-}
-.button {
-  color: #ffffff;
-  text-decoration: none;
-  display: inline-block;
-  font-family: arial, sans-serif;
-  padding: 0.5em 1em;
-}
-.button.peep-button {
-  background-color: #41aad1;
 }
 .peep header {
   padding-bottom: 0.5em;
