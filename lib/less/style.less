@@ -1,37 +1,51 @@
 // out: ../../public/stylesheets/style.css
 
+@import '_variables.less';
 @import '_mixins.less';
-
-@fb-blue: #4c66a4;
-@tw-blue: #41aad1;
-@alert-red: #ba4e4e;
-@light-blue: #e2e8f7;
-
-@white: #fff;
-@dark-grey: #444;
-@light-grey: #ddd;
-
-@sans: arial, sans-serif;
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #e0e0e0;
+  background-color: @background-colour;
 }
 
 a {
   text-decoration: none;
-  color: @fb-blue;
+  color: @main-colour;
   
   &:hover {
     text-decoration: underline;
   }
 }
 
+section {
+  background-color: @white;
+  width: 95%;
+  max-width: 600px;
+  padding: 0.75em 1em 1em;
+  font-family: @sans;
+  margin: 2em auto;
+  .border-radius(3px);
+  .box-shadow(0,0,1px,0.2);
+  
+  h1 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.4em;
+  }
+  
+  small {
+    font-size: 0.8em;
+  }
+}
+
+// Header
+//-------------------------
+
 body > header {
-  background-color: @fb-blue;
+  background-color: @main-colour;
   color: @white;
   width: 100%;
   
@@ -93,41 +107,14 @@ body > header {
   padding: 0.5em 1em;
   
   &.peep-button {
-    background-color: @tw-blue;
+    background-color: @peep-colour;
   }
 }
 
-section {
-  background-color: @white;
-  width: 95%;
-  max-width: 600px;
-  padding: 0.75em 1em 1em;
-  font-family: @sans;
-  margin: 2em auto;
-  .border-radius(3px);
-  .box-shadow(0,0,1px,0.2);
-  
-  h1 {
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-bottom: 0.4em;
-  }
-  
-  small {
-    font-size: 0.8em;
-  }
-}
+// Peeps
+//-----------------
 
-.peep {
-  background-color: @white;
-  width: 95%;
-  max-width: 600px;
-  padding: 0.75em 1em 1em;
-  font-family: @sans;
-  margin: 2em auto;
-  .border-radius(3px);
-  .box-shadow(0,0,1px,0.2);
-  
+.peep {  
   header {
     padding-bottom: 0.5em;
     margin-bottom: 0.75em;
@@ -151,13 +138,13 @@ section {
         color: #999;
         
         &:hover {
-          color: @fb-blue;
+          color: @main-colour;
         }
       }
     }
     
     .date {
-      color: @fb-blue;
+      color: @main-colour;
       font-size: 0.8em;
       float: right;
     }
@@ -188,27 +175,16 @@ section {
   }
 }
 
-.flash {
-  color: @fb-blue;
-  width: 95%;
-  max-width: 600px;
-  margin: 1em auto;
-  font-family: @sans;
-  padding: 0.5em;
-  text-align: center;
-  
-  &.errors {
-    color: @alert-red;
-  }
+.peep.with-reply {
+  .border-radiuses (3px, 0, 0, 3px);
 }
 
-.flash + #peeps-container .peep:first-child {
-  margin-top: 1em;
+.peep.with-originals {
+  .border-radiuses (0, 3px, 3px, 0);
 }
 
-.flash + section {
-  margin-top: 1em;
-}
+// Forms
+//---------------------
 
 #sign-in, #sign-up, #new-peep {
   margin: 0 auto;
@@ -217,7 +193,7 @@ section {
   .clearfix;
 }
 
-input[type=email],input[type=password],input[type=url],input[type=text] {
+input[type=email],input[type=password],input[type=url],input[type=text], textarea {
   background-color: white;
   font-size: 1em;
   padding: 0.75em 1em;
@@ -231,35 +207,18 @@ input[type=email],input[type=password],input[type=url],input[type=text] {
   
   &:focus {
     outline: none;
-    border: 1px solid @fb-blue;
+    border: 1px solid @main-colour;
   }
 }
 
-textarea {
-  background-color: white;
-  font-size: 1em;
-  padding: 0.75em 1em;
-  border: none;
-  .border-radius(3px);
-  display: block;
-  margin-top: 1em;
-  width: 500px;
-  max-width: 100%;
-  border: 1px solid @light-grey;
-  resize: none;
-  
-  &:focus {
-    outline: none;
-    border: 1px solid @fb-blue;
-  }
-}
+textarea { resize: none; }
 
 .form-button {
   margin-top: 0.75em;
   font-size: 0.8em;
   cursor: pointer;
   color: @white;
-  background-color: @fb-blue;
+  background-color: @main-colour;
   border: none;
   padding: 0.5em 1em;
   float: right;
@@ -273,27 +232,17 @@ textarea {
   }
   
   &.peep-button {
-    background-color: @tw-blue;
+    background-color: @peep-colour;
   }
-}
-
-section.with-reply {
-  .border-radiuses (3px, 0, 0, 3px);
-}
-
-section.with-originals {
-  .border-radiuses (0, 3px, 3px, 0);
 }
 
 section.reply-form {
   background-color: @light-blue;
   margin-top: -2em;
-  .border-radiuses (0, 3px, 3px, 0);
   border-top: 1px solid rgba(232, 232, 232, 0.74);
+  .border-radiuses (0, 3px, 3px, 0);
   
-  form {
-    .clearfix;
-  }
+  form { .clearfix; }
   
   .form-button {
     margin: 0;
@@ -308,64 +257,70 @@ section.reply-form {
   }
 }
 
-.peep.reply {
+// Replies
+//--------------------------
+
+.peep.reply, .peep.original {
   background-color: #f4f4f4;
-  margin-top: -1em;
-  color: @dark-grey;
   
   header .date {
-    color: darken(@fb-blue, 15%);
+    color: darken(@main-colour, 15%);
     
     &:hover {
-      color: @fb-blue;
+      color: @main-colour;
     }
   }
 }
 
-.peep.original {
-  background-color: #f4f4f4;
-  margin-bottom: -1em;
+.peep.reply { margin-top: -1em; }
+
+.peep.original { margin-bottom: -1em; }
+
+section.more-replies, section.more-originals {
+  background-color: @reply-background;
+  font-size: 0.8em;
+  padding: 0.75em 1em;
   
-  header .date {
-    color: darken(@fb-blue, 15%);
+  a {
+    color: darken(@main-colour, 15%);
     
     &:hover {
-      color: @fb-blue;
+      color: @main-colour;
     }
   }
 }
 
 section.more-replies {
-  background-color: #ebebeb;
-  font-size: 0.8em;
   margin-top: -2.5em;
   .border-radiuses (0, 3px, 3px, 0);
-  
-  a {
-    color: darken(@fb-blue, 15%);
-    
-    &:hover {
-      color: @fb-blue;
-    }
-  }
 }
 
 section.more-originals {
-  background-color: #ebebeb;
-  font-size: 0.8em;
   margin-bottom: -2.5em;
   .border-radiuses (3px, 0, 0, 3px);
-  padding: 0.75em 1em;
-  
-  a {
-    color: darken(@fb-blue, 15%);
-    
-    &:hover {
-      color: @fb-blue;
-    }
-  }
 }
 
 .reply ~ .reply {
   margin-top: -1.25em;
+}
+
+// Flash Messages
+//---------------------
+
+.flash {
+  color: @alert;
+  width: 95%;
+  max-width: 600px;
+  margin: 1em auto;
+  font-family: @sans;
+  padding: 0.5em;
+  text-align: center;
+  
+  &.errors {
+    color: @alert-bad;
+  }
+}
+
+.flash + #peeps-container .peep:first-child, .flash + section {
+  margin-top: 1em;
 }
