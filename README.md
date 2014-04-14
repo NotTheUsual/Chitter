@@ -14,4 +14,4 @@ If you want to join in the fun yourself, you can sign up (or sign in if you're a
 
 ## What makes it work
 
-Chitter is a modular Sinatra application. It uses DataMapper for interactions with the database (provided by Postgres both locally and on Heroku) and BCrypt for authentication. Styling is done through LESS (compiled locally). Play with it [here](http://safe-beyond-8311.herokuapp.com/) if you fancy.
+Chitter is a modular Sinatra application. It uses DataMapper for interactions with the database (provided by Postgres both locally and on Heroku) and BCrypt for authentication. Styling is done through LESS (compiled locally). Tested thoroughly wit Cucumber and Rspec. Play with it [here](http://safe-beyond-8311.herokuapp.com/) if you fancy.
